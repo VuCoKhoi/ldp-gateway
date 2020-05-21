@@ -1,7 +1,10 @@
 const httpProxy = require("http-proxy");
+const errorProxy = require("../errorProxy");
 
-const ldpPubSubServer = httpProxy.createProxyServer({
+const ldpApp = httpProxy.createProxyServer({
   target: process.env.MIX_LDP_APP,
 });
 
-module.exports = ldpPubSubServer;
+errorProxy(ldpApp);
+
+module.exports = ldpApp;

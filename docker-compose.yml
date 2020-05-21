@@ -1,0 +1,12 @@
+version: "2.1"
+
+services:
+  ldp-proxy-server:
+    image: ldp-proxy-server:1.0
+    build: .
+    ports:
+      - 5010:5010
+    restart: always
+    environment:
+      - HTTP_PROXY=https://127.0.0.1:5010
+      - HTTPS_PROXY="https://127.0.0.1:5010
